@@ -11,10 +11,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         initView()
+
+        addTopRoundedFragment()
     }
 
     private fun initView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    private fun addTopRoundedFragment() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.root_container, TopRoundedBlankFragment.newInstance())
+            .commit()
     }
 }
