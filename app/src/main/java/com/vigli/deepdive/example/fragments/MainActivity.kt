@@ -11,10 +11,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         initView()
+
+        showDialog()
     }
 
     private fun initView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btn.setOnClickListener {
+            showDialog()
+        }
+    }
+
+    private fun showDialog() {
+        BlankBottomSheetDialogFragment.newInstance().show(
+            supportFragmentManager,
+            "BlankBottomSheetDialogFragment"
+        )
     }
 }
